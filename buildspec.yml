@@ -30,3 +30,8 @@ phases:
 artifacts:
   files:
      - build-output/**/*
+     - Name: node.zip
+     - Packaging: zip
+     - Path: myartifacts
+     - Type: s3
+
