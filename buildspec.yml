@@ -29,7 +29,6 @@ phases:
 # ExpressJS apps will need other artifact directories included (bin/*, public/*, routes/*, views/* etc).
 artifacts:
   files:
-     - build-output/**/*
      - Name: node.zip
      - Packaging: zip
      - Path: myartifacts
