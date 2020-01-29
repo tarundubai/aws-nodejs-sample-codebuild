@@ -20,7 +20,14 @@ phases:
       - mocha test.js
   post_build:
     commands:
-#     - mkdir build-output
+      - echo Running post_build commands
+      - mkdir build-output
+      - cp -R node/* build-output
+      - mkdir -p build-output/node_modules
+      - cp -R node_modules/* build-output/node_modules
+      - cd build-output/
+      - zip -qr build-output.zip ./*
+      - mv build-output.zip ../
       - echo Build completed on `date`
 # Include only the files required for your application to run.
 # Do not use recursively include artifacts from node_modules directory as it will include unnecessary packages 
@@ -28,5 +35,5 @@ phases:
 # ExpressJS apps will need other artifact directories included (bin/*, public/*, routes/*, views/* etc).
 artifacts:
   files:
-     - '**/*'
+     - build-output.zip
 
